@@ -7,10 +7,10 @@ class Controller:
     """Класс контроллера"""
     def __init__(self):
         """Инициализирует контроллер"""
-        self.menu = Menu()
-        self.menu.show_menu()
-        self.menu.input()
-        self.manager_animals = RegistryOfPets()
+        self._menu = Menu()
+        self._menu.show_menu()
+        self._menu.input()
+        self._manager_animals = RegistryOfPets()
 
     def run(self):
         """Запускает приложение"""
@@ -18,30 +18,30 @@ class Controller:
             self._select_menu()
 
     def _select_menu(self):
-        self.menu = self.menu.select_menu()
+        self._menu = self._menu.select_menu()
         
-        if isinstance(self.menu, tuple):
-            animal, self.menu = self.menu
+        if isinstance(self._menu, tuple):
+            animal, self._menu = self._menu
             print(animal)
-            self.manager_animals.add_animal(animal)
-        elif self.menu == SHOW_COMMANDS:
+            self._manager_animals.add_animal(animal)
+        elif self._menu == SHOW_COMMANDS:
             print(self._find_animal_from_id().get_commands())
-        elif self.menu == SHOW_FOODS:
+        elif self._menu == SHOW_FOODS:
             print(self._find_animal_from_id().get_foods())
-        elif self.menu == ADD_COMMAND:
+        elif self._menu == ADD_COMMAND:
             animal = self._find_animal_from_id()
-            self.menu = MenuAddListCommand(animal)
-        elif self.menu == ADD_FOOD:
+            self._menu = MenuAddListCommand(animal)
+        elif self._menu == ADD_FOOD:
             animal = self._find_animal_from_id()
-            self.menu = MenuAddListFood(animal)
+            self._menu = MenuAddListFood(animal)
             
-        self.menu.show_menu()
-        self.menu.input()
+        self._menu.show_menu()
+        self._menu.input()
 
     def _find_animal_from_id(self):
-        animal = Finder(self.manager_animals.get_animals()).find_animal_id()
+        animal = Finder(self._manager_animals.get_animals()).find_animal_id()
         if not animal:
             print('Такого животного в питомнике нет')
         
-        self.menu = Menu()
+        self._menu = Menu()
         return animal

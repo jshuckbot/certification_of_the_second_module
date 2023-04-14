@@ -66,9 +66,6 @@ class ManagerDataDB:
 
         return animals
 
-    def _add_foods_db(self, do):
-        """Добавить новую еду для животного"""
-
     def get_list_available_commands_db(self):
         """Получает список доступных команд"""
         with SQLite('nursery.db') as cur:

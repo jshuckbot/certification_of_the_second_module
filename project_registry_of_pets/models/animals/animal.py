@@ -100,13 +100,6 @@ class Dog(Pet):
     def howl(self):
         """Выть"""
 
-    def get_raw_data(self):
-        """Получает сырые данные о животном для запроса"""
-        return (self._ID, self._name, self._mind,
-                self._smell, self._aggression,
-                self._breed, self._birthday,
-                self.category_animals_id)
-
 
 class Cat(Pet):
     """Класс кошки"""
