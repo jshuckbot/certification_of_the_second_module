@@ -31,7 +31,7 @@ class Animal:
 
     def __repr__(self):
         """Вывод животного"""
-        return f'{self._name} {self._foods} {self._commands}'
+        return f'Общий id: {self._common_id}. Вид: {self.__class__.__name__}. Имя: {self._name}. Еда: {self._foods} Комманды: {self._commands}'
 
     def add_food_to_ration(self, item_id: int, item_food: str):
         """Добавляет еду в рацион"""

@@ -18,3 +18,8 @@ class RegistryOfPets:
     def get_animals(self):
         """Получает спислок животных"""
         return self._animals
+
+    def show_animals(self):
+        """Выводиь всех животных"""
+        for animal in self._animals:
+            print(animal)

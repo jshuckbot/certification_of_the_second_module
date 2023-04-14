@@ -4,10 +4,10 @@ from ..animals.animal import *
 from ..creator_animals.creator import *
 
 SHOW_COMMANDS = 'show commands'
+SHOW_ANIMALS = 'show animals'
 SHOW_FOODS = 'show foods'
 ADD_COMMAND = 'add command'
 ADD_FOOD = 'add food'
-
 
 class Menu:
     _menu = {
@@ -16,6 +16,7 @@ class Menu:
         '3': 'Просмотреть рацион питания животного',
         '4': 'Обучить командам животное',
         '5': 'Добавить новую еду в рацион животному',
+        '6': 'Показать всех животных',
         '0': 'Выход',
     }
     
@@ -33,6 +34,7 @@ class Menu:
             case 3: return SHOW_FOODS
             case 4: return ADD_COMMAND
             case 5: return ADD_FOOD
+            case 6: return SHOW_ANIMALS
             case 0: sys.exit()
             case _: return Menu()
             
@@ -41,6 +43,7 @@ class Menu:
             self._item = int(input('Выберите пункт меню: '))
         except ValueError:
             self._item = -1
+
 
 
 class MenuAddAnimal(Menu):
@@ -72,7 +75,9 @@ class MenuAddPetsAnimal(Menu):
         """Выбирает пункт меню"""
         match self._item:
             case 1:
-                animal = CreatorDog(Dog).get_animal()
+                animal = CreatorDog(Dog)
+                print(id(animal))
+                animal = animal.get_animal()
                 return MenuAddAninimalAddListCommand(animal)
             case 2:
                 animal = CreatorCat(Cat).get_animal()

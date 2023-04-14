@@ -4,9 +4,11 @@ class Creator:
     
     def __init__(self, animal):
         """Иницилизирует создателя"""
+        self._data = self.__class__._data.copy()
         self._input()
         self._animal = animal
         self._animal = self._create()
+
     
     def _input(self):
         """Вводит данные о собаке"""
@@ -50,7 +52,7 @@ class CreatorCat(Creator):
 
 class CreatorHamster(Creator):
     """Класс создателя хомяка"""
-    _date = {
+    _data = {
         'name': 'Введите имя: ',
         'aggression': 'Введите показатель агрессии (да|нет): ',
         'breed': 'Введите породу хомяка: ',

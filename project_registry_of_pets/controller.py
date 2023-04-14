@@ -22,7 +22,6 @@ class Controller:
         
         if isinstance(self._menu, tuple):
             animal, self._menu = self._menu
-            print(animal)
             self._manager_animals.add_animal(animal)
         elif self._menu == SHOW_COMMANDS:
             print(self._find_animal_from_id().get_commands())
@@ -34,7 +33,10 @@ class Controller:
         elif self._menu == ADD_FOOD:
             animal = self._find_animal_from_id()
             self._menu = MenuAddListFood(animal)
-            
+        elif self._menu == SHOW_ANIMALS:
+            self._manager_animals.show_animals()
+            self._menu = Menu()
+
         self._menu.show_menu()
         self._menu.input()
 
