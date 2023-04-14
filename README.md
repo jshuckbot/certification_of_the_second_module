@@ -134,5 +134,9 @@ history
 
 [скрипт task_12](mysql/task_10-12.sql)
 
+13 - 15
+
+[project](project_registry_of_pets)
+
 ## Лицензия
 MIT
